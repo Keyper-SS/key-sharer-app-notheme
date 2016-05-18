@@ -1,0 +1,10 @@
+h1 User Account
+table
+  tr
+    td Username:
+    td 
+      == @current_user['data']['attributes']['username']
+  tr
+    td Email:
+    td 
+      == @current_user['data']['attributes']['email']
