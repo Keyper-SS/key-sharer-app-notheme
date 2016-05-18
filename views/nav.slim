@@ -2,8 +2,8 @@ a href='/'
   == 'HOME'
 = ' | '
 - if @current_user
-  a href="/user/#{@current_user['data']['attributes']['username']}"
-    = "#{@current_user['data']['attributes']['username']} user"
+  = "#{@current_user['data']['attributes']['username']} | "
+  a href="/user/#{@current_user['data']['attributes']['username']}" user
   = ' | '
   a href='/logout' logout
 - else

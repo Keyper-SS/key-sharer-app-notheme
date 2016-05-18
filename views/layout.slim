@@ -2,6 +2,9 @@ doctype html
 html
   head
     title KeySharer
+    link rel='stylesheet' href='/style.css'
   body
     == slim :nav
+  section
+    == slim :flash_bar
     == yield
