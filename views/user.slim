@@ -1,10 +1,17 @@
-h1 User Account
-table
-  tr
-    td Username:
-    td 
-      == @current_user['data']['attributes']['username']
-  tr
-    td Email:
-    td 
-      == @current_user['data']['attributes']['email']
+h1 Account Details
+div.container
+  div.row
+    div.col-sm-2 Username:
+    div.col-sm-10
+      == @current_user['attributes']['username']
+  div.row
+    div.col-sm-2 Email:
+    div.col-sm-10
+      == @current_user['attributes']['email']
+  div.row
+    div.col-sm-2 Token:
+    div.col-sm-10
+      a data-toggle="collapse" href="#token" aria-expanded="false" aria-controls="token" show token
+      div.collapse.well id="token"
+        span.force-wrap
+          == @auth_token

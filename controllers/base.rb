@@ -5,7 +5,9 @@ require 'rack/ssl-enforcer'
 # Base class for ConfigShare Web Application
 class KeySharerApp < Sinatra::Base
   enable :logging
-  use Rack::Session::Cookie, secret: ENV['MSG_KEY']
+
+  use Rack::Session::Cookie, secret: ENV['MSG_KEY'],
+                             expire_after: 60 * 60 * 24 * 7
   use Rack::Flash
 
   configure :production do
@@ -13,12 +15,7 @@ class KeySharerApp < Sinatra::Base
   end
 
   set :views, File.expand_path('../../views', __FILE__)
-  # set :public_folder, File.dirname(__FILE__) + '/../public'
   set :public_folder, File.expand_path('../../public', __FILE__)
-
-  # before do
-  #   @current_user = session[:current_user]
-  # end
 
   before do
     if session[:current_user]
